@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>BVRGEMBJATWDHATBTVRGIA</title>
+    <meta name="description" content="BVRGEMBJATWDHATBTVRGIA" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <!-- https://github.com/n5ro/aframe-physics-system -->
+  </head>
+  <body>
+    <script src="./vr.js"></script>
+    <a-scene stats>
+      <a-box
+        color="#EF2D5E"
+        position="0 1 -4"
+        change-color-on-hover="color: blue"
+      ></a-box>
+
+      <a-cylinder
+        position="1 0.75 -3"
+        radius="0.5"
+        height="1.5"
+        color="#FFC65D"
+        event-set__enter="_event: mouseenter; _target: #cylinderText; visible: true"
+        event-set__leave="_event: mouseleave; _target: #cylinderText; visible: false"
+      >
+        <a-text
+          id="cylinderText"
+          value="This is a cylinder"
+          align="center"
+          color="#FFF"
+          visible="false"
+          position="0 -0.55 0.55"
+          geometry="primitive: plane; width: 1.75"
+          material="color: #333"
+        ></a-text>
+      </a-cylinder>
+
+      <a-sphere
+        position="-1 0.75 -3"
+        radius="0.5"
+        height="1.5"
+        color="#FF4A5D"
+        event-set__enter="_event: mouseenter; _target: #sphereText; visible: true"
+        event-set__leave="_event: mouseleave; _target: #sphereText; visible: false"
+      >
+        <a-text
+          id="sphereText"
+          value="load next page"
+          align="center"
+          color="#FFF"
+          visible="false"
+          position="0 -0.55 0.55"
+          geometry="primitive: plane; width: 1.75"
+          material="color: #333"
+          navigate="url: test"
+        ></a-text>
+      </a-sphere>
+
+      <a-plane
+        position="0 0 -4"
+        rotation="-90 0 0"
+        width="4"
+        height="4"
+        color="#7BC8A4"
+      ></a-plane>
+
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
