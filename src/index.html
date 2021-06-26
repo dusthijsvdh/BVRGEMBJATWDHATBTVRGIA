@@ -12,18 +12,73 @@
     <script src="./vr.js"></script>
     <a-scene
       stats
+      shadow="type: pcfsoft"
       sound="src: #river; autoplay: true; loop: true; positional: false; poolSize: 2; volume: 0.25;"
     >
       <a-assets>
         <audio id="river" src="./sound/forestWind.mp3" preload="auto"></audio>
 
-        <img id="sky" src="./images/cannon.jpg">
+        <img id="sky" src="./images/cannon.jpg" />
 
         <a-asset-item id="mountain" src="../3d/mountain.gltf"></a-asset-item>
+        <a-asset-item id="jeep" src="../3d/jeep.gltf"></a-asset-item>
+        <a-asset-item
+          id="tent"
+          src="../3d/tent_detailedOpen.glb"
+        ></a-asset-item>
+        <a-asset-item id="bed" src="../3d/bed_floor.glb"></a-asset-item>
       </a-assets>
-      <a-entity gltf-model="#mountain" position="-16.5 -7.4 -71.4" scale="10 10 10" rotation="0 180 0"></a-entity>
-      <a-cylinder radius="0.2" height="1.5" position="0 0.8 0"></a-cylinder>
 
+      <a-gltf-model
+        src="#mountain"
+        shadow="receive: true"
+        position="-16.5 -7.4 -71.4"
+        scale="10 10 10"
+        rotation="0 180 0"
+      >
+        <a-gltf-model
+          src="#tent"
+          scale="0.5 0.5 0.5"
+          rotation="0 -78.78 0"
+          position="-3.14181 0.87406 -7.16938"
+        >
+          <a-gltf-model
+            src="#bed"
+            scale="1 1 1"
+            rotation="0 0 0"
+            position="0 0 0"
+          ></a-gltf-model>
+        </a-gltf-model>
+
+        <a-entity
+          gltf-model="../3d/jeep.gltf"
+          shadow="receive: true"
+          scale="0.15 0.15 0.15"
+          rotation="17.1 22.1 -10.4"
+          position="-2.65963 0.86854 -7.68089"
+        >
+          <a-entity
+            light="type: spot; color: #ffef85; intensity: 1.08; groundColor: #ffffff; distance: 10; penumbra: 0.36; castShadow: true;"
+            position="0.60514 0.85439 2.15322"
+            rotation="173.88 -20.345 164.41"
+          ></a-entity>
+          <a-entity
+            light="type: spot; color: #ffef85; intensity: 1.08; groundColor: #ffffff; distance: 10; penumbra: 0.36; castShadow: true;"
+            position="-0.620 0.938 2.094"
+            rotation="5.131 -178.19 -9.706"
+          ></a-entity>
+        </a-entity>
+      </a-gltf-model>
+
+      <!-- <a-cylinder radius="0.2" height="1.5" position="0 0.8 0"></a-cylinder> -->
+
+      <a-entity
+        light="type: directional; color: #F5FFCC; intensity: 1.3;"
+        position="51.89217 161.51931 -72.92806"
+      ></a-entity>
+      <a-entity
+        light="type: ambient; color: #F5FFCC; intensity: 0.75;"
+      ></a-entity>
       <a-camera>
         <a-cursor></a-cursor>
       </a-camera>
