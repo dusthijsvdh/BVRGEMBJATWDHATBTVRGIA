@@ -42,25 +42,28 @@ const movementMap =  {
     },
 }
 
+function MovementSingleton() {
+  if (!MovementSingleton._instance) {
+    MovementSingleton._instance = this;
+  }
+  return MovementSingleton._instance;
+}
+
 function move(el) {
     const map = document.getElementById("map");
     const positions = movementMap[`${el.getAttribute("id")}`]
     map.setAttribute("position", positions);
+
+    el.setAttribute("visible", "false");
+    if (MovementSingleton().hiddenId) {
+        document.getElementById(hiddenId).setAttribute("visible", true);
+    }
+    MovementSingleton().hiddenId = el.getAttribute("id")
 }
 
 AFRAME.registerComponent('movable', {
     init: function () {
         this.el.setAttribute("color", "yellow");
-
-        const cursor = document.getElementById("cursor");
-
-        this.el.addEventListener("mouseenter", function (event) {
-            cursor.setAttribute("color", "blue");
-        });
-
-        this.el.addEventListener("mouseleave", function (event) {
-            cursor.setAttribute("color", "black");
-        });
 
         this.el.addEventListener("click", function (event) {
             const el = event.path[0];
