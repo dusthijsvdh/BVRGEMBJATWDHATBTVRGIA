@@ -1,9 +1,18 @@
 const triviaMap = {
     "t1": {
-        text: "Informatie over deze eerste kut boom"
+        text: "De naalden van een den kunnen tot 25 centimeter lang worden."
     },
     "t2": {
-        text: "Informatie over de tweede (en voor nu laatste) kut boom"
+        text: "De den verliest zijn bladeren niet in de herfst/winter."
+    },
+    "t3": {
+        text: "Het “Kleine Jantje” is een zeldzame nederlandse vogel, en zit graag op naalden."
+    },
+    "t4": {
+        text: "Berken wortelen heel ondiep."
+    },
+    "t5": {
+        text: "De berk wordt in veel tuinen en parken gebruikt als vogellokker." 
     }
 }
 
