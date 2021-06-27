@@ -15,33 +15,168 @@
     <script src="./trivia.js"></script>
     <a-scene
       stats
+      shadow="type: pcfsoft"
       sound="src: #river; autoplay: true; loop: true; positional: false; poolSize: 2; volume: 0.25;"
-      wasd-controls-enabled="false"
+      cursor="rayOrigin: mouse"
+      raycaster="objects: [clickable]"
     >
       <!-- Assets -->
       <a-assets>
         <audio id="river" src="./sound/forestWind.mp3" preload="auto"></audio>
-        <img id="sky" src="./images/cannon.jpg">
+
+        <img id="sky" src="./images/cape_hill.jpg" />
+
         <a-asset-item id="mountain" src="../3d/mountain.gltf"></a-asset-item>
+        <a-asset-item id="jeep" src="../3d/jeep.gltf"></a-asset-item>
       </a-assets>
       <!-- Map -->
-      <a-entity id="map" gltf-model="#mountain" position="-16.5 -7.4 -71.4" scale="10 10 10" rotation="0 180 0">
-        <!-- Shit for movement -->
-        <a-box id="m1" material="" geometry="" position="-2.084 1.02 -5.596" scale="0.07 0.07 0.07" movable clickable></a-box>
-        <a-box id="m2" material="" geometry="" position="-2.084 1.441 -4.095" scale="0.07 0.07 0.07" movable clickable></a-box>
-        <a-box id="m3" material="" geometry="" position="-2.533 1.824 -2.699" scale="0.07 0.07 0.07" movable clickable></a-box>
-        <a-box id="m4" material="" geometry="" position="-2.499 1.999 -1.120" scale="0.07 0.07 0.07" movable clickable></a-box>
-        <a-box id="m5" material="" geometry="" position="-3.852 2.174 -0.258" scale="0.07 0.07 0.07" movable clickable></a-box>
-        <a-box id="m6" material="" geometry="" position="-3.290 2.377 1.744" scale="0.07 0.07 0.07" movable clickable></a-box>
-        <a-box id="m7" material="" geometry="" position="-1.330 3.085 2.192" scale="0.07 0.07 0.07" movable clickable></a-box>
-        <a-box id="m8" material="" geometry="" position="0.535 3.223 2.637" scale="0.07 0.07 0.07" movable clickable></a-box>
-      </a-entity>
+      <a-gltf-model
+        id="map"
+        src="#mountain"
+        shadow="receive: true"
+        position="-16.5 -10.5 -71.4"
+        scale="10 10 10"
+        rotation="0 180 0"
+      >
+        <!-- Movement -->
+        <a-box
+          id="m1"
+          material=""
+          geometry=""
+          position="-2.084 1.09 -5.596"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m2"
+          material=""
+          geometry=""
+          position="-2.084 1.441 -4.095"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m3"
+          material=""
+          geometry=""
+          position="-2.533 1.824 -2.699"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m4"
+          material=""
+          geometry=""
+          position="-2.499 1.999 -1.120"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m5"
+          material=""
+          geometry=""
+          position="-3.852 2.174 -0.258"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m6"
+          material=""
+          geometry=""
+          position="-3.290 2.377 1.744"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m7"
+          material=""
+          geometry=""
+          position="-1.330 3.085 2.192"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m8"
+          material=""
+          geometry=""
+          position="0.535 3.223 2.637"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+
+        <!-- Trivia -->
+        <a-box 
+          id="t1" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-1.55 1.6 -4.137" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t2" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-1.852 2.247 -1.189" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t3" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-3.2 2.450 -0.276" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t4" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-3.258 2.5 2.382" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t5" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-1.337 3.25 1.625" 
+          clickable 
+          trivia
+        ></a-box>
+      </a-gltf-model>
+
+      <a-entity
+        light="type: directional; color: #F5FFCC; intensity: 1.3;"
+        position="51.89217 161.51931 -72.92806"
+      ></a-entity>
+      <a-entity
+        light="type: ambient; color: #F5FFCC; intensity: 0.75;"
+      ></a-entity>
       <a-camera id="camera">
-        <a-cursor id="cursor" fuse="true" fuse-timeout="1500"
-        raycaster="objects: [clickable]"
-        animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-        animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-        animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
+        <a-cursor
+          id="cursor"
+          fuse="true"
+          fuse-timeout="1500"
+          raycaster="objects: [clickable]"
+          animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+          animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+          animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+        ></a-cursor>
       </a-camera>
       <a-sky src="#sky"></a-sky>
     </a-scene>
