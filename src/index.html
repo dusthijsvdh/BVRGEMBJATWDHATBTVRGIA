@@ -10,14 +10,16 @@
   </head>
   <body>
     <script src="./vr.js"></script>
+    <script src="./clickable.js"></script>
     <script src="./movement.js"></script>
     <script src="./sound.js"></script>
+    <script src="./trivia.js"></script>
     <a-scene
       stats
       shadow="type: pcfsoft"
       sound="src: #river; autoplay: true; loop: true; positional: false; poolSize: 2; volume: 0.25;"
       cursor="rayOrigin: mouse"
-      raycaster="objects: [movable]"
+      raycaster="objects: [clickable]"
     >
       <!-- Assets -->
       <a-assets>
@@ -69,6 +71,7 @@
           geometry=""
           position="-2.084 1.09 -5.596"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
         <a-box
@@ -77,6 +80,7 @@
           geometry=""
           position="-2.084 1.441 -4.095"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
         <a-box
@@ -85,6 +89,7 @@
           geometry=""
           position="-2.533 1.824 -2.699"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
         <a-box
@@ -93,6 +98,7 @@
           geometry=""
           position="-2.499 1.999 -1.120"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
         <a-box
@@ -101,6 +107,7 @@
           geometry=""
           position="-3.852 2.174 -0.258"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
         <a-box
@@ -109,6 +116,7 @@
           geometry=""
           position="-3.290 2.377 1.744"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
         <a-box
@@ -117,6 +125,7 @@
           geometry=""
           position="-1.330 3.085 2.192"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
         <a-box
@@ -125,11 +134,57 @@
           geometry=""
           position="0.535 3.223 2.637"
           scale="0.07 0.07 0.07"
+          clickable
           movable
         ></a-box>
-      </a-gltf-model>
 
-      <!-- <a-cylinder radius="0.2" height="1.5" position="0 0.8 0"></a-cylinder> -->
+        <!-- Trivia -->
+        <a-box 
+          id="t1" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-1.55 1.6 -4.137" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t2" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-1.852 2.247 -1.189" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t3" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-3.2 2.450 -0.276" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t4" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-3.258 2.5 2.382" 
+          clickable 
+          trivia
+        ></a-box>
+        <a-box 
+          id="t5" 
+          material="" 
+          geometry="" 
+          scale="0.07 0.07 0.07" 
+          position="-1.337 3.25 1.625" 
+          clickable 
+          trivia
+        ></a-box>
+      </a-gltf-model>
 
       <a-entity
         light="type: directional; color: #F5FFCC; intensity: 1.3;"
