@@ -12,6 +12,7 @@
     <script src="./vr.js"></script>
     <script src="./clickable.js"></script>
     <script src="./movement.js"></script>
+    <script src="./sound.js"></script>
     <script src="./trivia.js"></script>
     <a-scene
       stats
@@ -23,6 +24,7 @@
       <!-- Assets -->
       <a-assets>
         <audio id="river" src="./sound/forestWind.mp3" preload="auto"></audio>
+        <audio id="jeepSound" src="./sound/jeep.mp3" preload="auto"></audio>
 
         <img id="sky" src="./images/cape_hill.jpg" />
 
@@ -38,6 +40,30 @@
         scale="10 10 10"
         rotation="0 180 0"
       >
+
+        <!-- Jeep -->
+        <a-entity
+          gltf-model="../3d/jeep.gltf"
+          shadow="receive: false"
+          scale="0.15 0.15 0.15"
+          rotation="-0.113 30.649 2.700"
+          position="-2.966 1.021 -7.563"
+          visible="false"
+          soundable
+          sound="src: #jeepSound; autoplay: false; loop: false; positional: true; poolSize: 1; volume: 1;"
+        >
+          <a-entity
+            light="type: spot; color: #ffef85; intensity: 1.08; groundColor: #ffffff; distance: 10; penumbra: 0.36; castShadow: true;"
+            position="0.60514 0.85439 2.15322"
+            rotation="173.88 -20.345 164.41"
+          ></a-entity>
+          <a-entity
+            light="type: spot; color: #ffef85; intensity: 1.08; groundColor: #ffffff; distance: 10; penumbra: 0.36; castShadow: true;"
+            position="-0.620 0.938 2.094"
+            rotation="5.131 -178.19 -9.706"
+          ></a-entity>
+        </a-entity>
+
         <!-- Movement -->
         <a-box
           id="m1"
@@ -172,7 +198,7 @@
           id="cursor"
           fuse="true"
           fuse-timeout="1500"
-          raycaster="objects: [clickable]"
+          raycaster="objects: [clickable], [soundable]"
           animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
           animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
           animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
