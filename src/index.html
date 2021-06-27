@@ -48,9 +48,9 @@
           scale="0.15 0.15 0.15"
           rotation="-0.113 30.649 2.700"
           position="-2.966 1.021 -7.563"
-          visible="true"
+          visible="false"
           soundable
-          sound="src: #jeepSound; autoplay: false; loop: false; positional: true; poolSize: 2; volume: 1;"
+          sound="src: #jeepSound; autoplay: false; loop: false; positional: true; poolSize: 1; volume: 1;"
         >
           <a-entity
             light="type: spot; color: #ffef85; intensity: 1.08; groundColor: #ffffff; distance: 10; penumbra: 0.36; castShadow: true;"
@@ -198,7 +198,7 @@
           id="cursor"
           fuse="true"
           fuse-timeout="1500"
-          raycaster="objects: [movable], [soundable]"
+          raycaster="objects: [clickable], [soundable]"
           animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
           animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
           animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
