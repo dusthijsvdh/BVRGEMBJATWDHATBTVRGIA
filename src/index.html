@@ -6,6 +6,7 @@
     <meta name="description" content="BVRGEMBJATWDHATBTVRGIA" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <!-- https://github.com/n5ro/aframe-physics-system -->
   </head>
   <body>
@@ -25,11 +26,24 @@
       <a-assets>
         <audio id="river" src="./sound/forestWind.mp3" preload="auto"></audio>
         <audio id="jeepSound" src="./sound/jeep.mp3" preload="auto"></audio>
+        <audio
+          id="birdFlying"
+          src="./sound/birdFlying.mp3"
+          preload="auto"
+        ></audio>
+        <audio
+          id="birdSquawk"
+          src="./sound/seagullSquawk.mp3"
+          preload="auto"
+        ></audio>
 
         <img id="sky" src="./images/cape_hill.jpg" />
 
         <a-asset-item id="mountain" src="../3d/mountain.gltf"></a-asset-item>
         <a-asset-item id="jeep" src="../3d/jeep.gltf"></a-asset-item>
+        <a-asset-item id="bird" src="../3d/bird_animated.gltf"></a-asset-item>
+        <a-asset-item id="birdReversed" src="../3d/bird_animatedReversed.gltf"></a-asset-item>
+        <a-asset-item id="infoPost" src="../3d/post.gltf"></a-asset-item>
       </a-assets>
       <!-- Map -->
       <a-gltf-model
@@ -40,10 +54,83 @@
         scale="10 10 10"
         rotation="0 180 0"
       >
+      <!-- Birds -->
+        <a-entity
+          gltf-model="#bird"
+          shadow="receive: false"
+          scale="0.25 0.25 0.25"
+          animation-mixer
+          position="-2.966 3.021 -7.563"
+        >
+          <a-sound
+            src="#birdFlying"
+            autoplay="true"
+            positional="true"
+            loop="true"
+            poolSize="1"
+            volume="1"
+          ></a-sound>
+          <a-sound
+            src="#birdSquawk"
+            autoplay="true"
+            positional="true"
+            loop="true"
+            poolSize="1"
+            volume="4"
+          ></a-sound>
+        </a-entity>
+        <a-entity
+          gltf-model="#birdReversed"
+          shadow="receive: false"
+          scale="0.25 0.25 0.25"
+          animation-mixer
+          position="-2.966 3.481 -2.563"
+        >
+          <a-sound
+            src="#birdFlying"
+            autoplay="true"
+            positional="true"
+            loop="true"
+            poolSize="1"
+            volume="1"
+          ></a-sound>
+          <a-sound
+            src="#birdSquawk"
+            autoplay="true"
+            positional="true"
+            loop="true"
+            poolSize="1"
+            volume="4"
+          ></a-sound>
+        </a-entity>
+        <a-entity
+          gltf-model="#birdReversed"
+          shadow="receive: false"
+          scale="0.25 0.25 0.25"
+          animation-mixer
+          position="0.610 5.398 3.689"
+        >
+          <a-sound
+            src="#birdFlying"
+            autoplay="true"
+            positional="true"
+            loop="true"
+            poolSize="1"
+            volume="1"
+          ></a-sound>
+          <a-sound
+            src="#birdSquawk"
+            autoplay="true"
+            positional="true"
+            loop="true"
+            poolSize="1"
+            volume="4"
+          ></a-sound>
+        </a-entity>
 
         <!-- Jeep -->
         <a-entity
-          gltf-model="../3d/jeep.gltf"
+          gltf-model="#jeep"
           shadow="receive: false"
           scale="0.15 0.15 0.15"
           rotation="-0.113 30.649 2.700"
@@ -111,10 +198,37 @@
           movable
         ></a-box>
         <a-box
+          id="m5extra"
+          material=""
+          geometry=""
+          position="-3.234 2.257 0.080"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m5extra1"
+          material=""
+          geometry=""
+          position="-3.861 2.284 1.047"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
           id="m6"
           material=""
           geometry=""
           position="-3.290 2.377 1.744"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="m6extra"
+          material=""
+          geometry=""
+          position="-2.616 2.597 1.999"
           scale="0.07 0.07 0.07"
           clickable
           movable
@@ -129,6 +243,15 @@
           movable
         ></a-box>
         <a-box
+          id="m7extra"
+          material=""
+          geometry=""
+          position="-0.749 3.339 3.161"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
           id="m8"
           material=""
           geometry=""
@@ -137,53 +260,133 @@
           clickable
           movable
         ></a-box>
+        <a-box
+          id="m8extra"
+          material=""
+          geometry=""
+          position="0.216 3.313 3.391"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        <a-box
+          id="mJeep"
+          material=""
+          geometry=""
+          position="-2.732 1.060 -6.852"
+          scale="0.07 0.07 0.07"
+          clickable
+          movable
+        ></a-box>
+        
 
         <!-- Trivia -->
-        <a-box 
-          id="t1" 
-          material="" 
-          geometry="" 
-          scale="0.07 0.07 0.07" 
-          position="-1.55 1.6 -4.137" 
-          clickable 
+        <a-box
+          id="t1"
+          material=""
+          geometry=""
+          scale="0.07 0.07 0.07"
+          position="-1.55 1.6 -4.137"
+          clickable
           trivia
         ></a-box>
-        <a-box 
-          id="t2" 
-          material="" 
-          geometry="" 
-          scale="0.07 0.07 0.07" 
-          position="-1.852 2.247 -1.189" 
-          clickable 
+        <a-box
+          id="t2"
+          material=""
+          geometry=""
+          scale="0.07 0.07 0.07"
+          position="-2.045 2.217 -1.189"
+          clickable
           trivia
         ></a-box>
-        <a-box 
-          id="t3" 
-          material="" 
-          geometry="" 
-          scale="0.07 0.07 0.07" 
-          position="-3.2 2.450 -0.276" 
-          clickable 
+        <a-box
+          id="t3"
+          material=""
+          geometry=""
+          scale="0.07 0.07 0.07"
+          position="-2.866 2.459 0.121"
+          clickable
           trivia
         ></a-box>
-        <a-box 
-          id="t4" 
-          material="" 
-          geometry="" 
-          scale="0.07 0.07 0.07" 
-          position="-3.258 2.5 2.382" 
-          clickable 
+        <a-box
+          id="t4"
+          material=""
+          geometry=""
+          scale="0.07 0.07 0.07"
+          position="-3.258 2.564 2.382"
+          clickable
           trivia
         ></a-box>
-        <a-box 
-          id="t5" 
-          material="" 
-          geometry="" 
-          scale="0.07 0.07 0.07" 
-          position="-1.337 3.25 1.625" 
-          clickable 
+        <a-box
+          id="t5"
+          material=""
+          geometry=""
+          scale="0.07 0.07 0.07"
+          position="-1.337 3.248 1.732"
+          clickable
           trivia
         ></a-box>
+        <a-box
+          id="tend"
+          material=""
+          geometry=""
+          scale="0.07 0.07 0.07"
+          position="0.610 3.398 3.689"
+          rotation="0 50 0"
+          clickable
+          trivia
+        ></a-box>
+
+        <!-- posts -->
+        <a-gltf-model
+          src="#infoPost"
+          scale="0.04 0.04 0.04"
+          rotation="0 -90 0"
+          position="-1.55 1.419 -4.137"
+          clickable
+          trivia
+        ></a-gltf-model>
+        <a-gltf-model
+          src="#infoPost"
+          scale="0.04 0.04 0.04"
+          rotation="0 -90 0"
+          position="-2.045 1.952 -1.189"
+          clickable
+          trivia
+        ></a-gltf-model>
+        <a-gltf-model
+          src="#infoPost"
+          scale="0.04 0.04 0.04"
+          rotation="0 -90 0"
+          position="-2.866 2.280 0.121"
+          clickable
+          trivia
+        ></a-gltf-model>
+        <a-gltf-model
+          src="#infoPost"
+          scale="0.04 0.04 0.04"
+          rotation="0 -180 0"
+          position="-3.258 2.365 2.382"
+          clickable
+          trivia
+        ></a-gltf-model>
+        <a-gltf-model
+          src="#infoPost"
+          scale="0.04 0.04 0.04"
+          rotation="0 0 0"
+          position="-1.337 3.043 1.732"
+          clickable
+          trivia
+        ></a-gltf-model>
+        <a-gltf-model
+          src="#infoPost"
+          scale="0.04 0.04 0.04"
+          rotation="0 -130 0"
+          position="0.603 3.210 3.671"
+          rotation="0 50 0"
+          clickable
+          trivia
+        ></a-gltf-model>
       </a-gltf-model>
 
       <a-entity
