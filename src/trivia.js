@@ -1,18 +1,18 @@
 const triviaMap = {
     "t1": {
-        text: "De naalden van een den kunnen tot 25 centimeter lang worden."
+        text: "De naalden van een den kunnen \ntot 25 centimeter lang worden."
     },
     "t2": {
-        text: "De den verliest zijn bladeren niet in de herfst/winter."
+        text: "De den verliest zijn bladeren \nniet in de herfst/winter."
     },
     "t3": {
-        text: "Het “Kleine Jantje” is een zeldzame nederlandse vogel, en zit graag op naalden."
+        text: "Het “Kleine Jantje” is een zeldzame \nnederlandse vogel, en zit graag op naalden."
     },
     "t4": {
         text: "Berken wortelen heel ondiep."
     },
     "t5": {
-        text: "De berk wordt in veel tuinen en parken gebruikt als vogellokker." 
+        text: "De berk wordt in veel tuinen en \nparken gebruikt als vogellokker." 
     },
     "tend": {
         text: "Dit was het einde van de experience!" 
