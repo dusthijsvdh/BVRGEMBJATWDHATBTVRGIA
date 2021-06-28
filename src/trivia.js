@@ -13,6 +13,9 @@ const triviaMap = {
     },
     "t5": {
         text: "De berk wordt in veel tuinen en \nparken gebruikt als vogellokker." 
+    },
+    "tend": {
+        text: "Dit was het einde van de experience!" 
     }
 }
 
